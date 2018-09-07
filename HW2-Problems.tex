@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{listings,amsmath}
+
+%Listings Settings
+\lstset{frame=tb,
+language=bash,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\ttfamily}
+}
+
+%Custom Commands
+\newcommand{\git}{{\texttt{git}}}
+\newcommand{\github}{{\texttt{Github}}}
+\newcommand{\Python}{{\texttt{Python}}}
+\newcommand{\python}{{\texttt{python}}}
+\newcommand{\Anaconda}{{\texttt{Anaconda}}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+
+\begin{document}
+
+\begin{center}
+
+\vspace*{-2.5cm}
+\LARGE
+\bf{Homework 2}
+\vspace{1cm}
+
+\large{Due: Sept 27, 2016}
+\vspace{1cm}
+
+\end{center}
+
+Write python functions to calculate integrals using the (right-biased) Riemann Sum, Trapezoid Rule, Simpson's Rule, Romberg integration, and Gaussian Quadrature.  Use the provided \texttt{gaussxy.py} code to calculate the points and weights for Gaussian Quadrature.  Test your methods using the following integrals:
+\begin{align}
+& \int_0^{4\pi} x^2 \cos(x) \diff x \label{func1}\\
+& \int_0^{100\pi} x^2 \cos(x) \diff x \\
+& \int_0^1 \sqrt{x} \diff x 
+\end{align}
+
+For each function and method calculate the $L_1$ error (absolute value of the difference between the true value and the numerical approximation) for a number of sample points ($N$).  Using this data, calculate the convergence rate $p$ ($L_1 \propto N^{-p}$) for each method on each integral.
+
+Write a \LaTeX{}  report discussing your results. It should include a short explanation of the algorithms with all relevant formula, convergence plots for each test showing the $L_1$ error versus $N$ for all methods, and a discussion that answers the following questions:
+\begin{itemize}
+	\item Do your empirical convergence rates match theoretical expectations? If not, what properties of the integral lead to the change in behaviour?
+	\item Do the methods behave as expected for both small and large values of $N$?  Make sure to try both very small and very large values of $N$.
+	\item At what $N$ do the methods become dominated by rounding error?  Does this agree with theoretical predictions?
+	\item For function \eqref{func1}, are the error estimates for Trapezoid Rule and Simpson's Rule correct?
+	\item Look in detail at the convergence of Romberg Integration and Gaussian Quadrature. Do they converge as a power law at all? Discuss.
+\end{itemize}
+
+Include the report \texttt{.tex} file and all Python files in the repo.  Also include either the \texttt{.pdf} version of the report, or all figures necessary to compile it from the \texttt{.tex} file.
+
+\end{document}
